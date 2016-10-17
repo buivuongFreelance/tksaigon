@@ -33,7 +33,7 @@ app.use('/', router);
 
 var server = http.createServer(app);
 
-server.listen(3030);
+server.listen(80);
 server.on('listening', ()=>{
-    console.log('Listening on 3030');
+    console.log('Listening on 80');
 });

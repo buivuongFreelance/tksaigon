@@ -21710,7 +21710,7 @@
 /***/ function(module, exports) {
 
 	/** @jsx React.DOM */module.exports = {
-		IP: 'http://localhost:3030/',
+		IP: 'http://tksaigon.com/',
 		roots: [
 			{folder: 'a1', detail: '485,685,70,11', parent: '0'},
 			{folder: 'a2', detail: '493,695,64,0', parent: 'a1'},
@@ -21733,6 +21733,7 @@
 			{folder: 'a20', detail: '470,660,91,35', parent: 'a19'}
 		]
 	}
+
 
 /***/ }
 /******/ ]);
