@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>Liên hệ - TKSaigon</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/jquery.custom-scrollbar.css">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/style.css">
+        <!-- FONT -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <script type="text/javascript" src="/modules/client/js/modernizr.js"></script>
+        <!-- END FONT -->
+    </head>
+    <body>
+        <div class="wide_layout relative w_xs_auto">
+            <%- include partials/header.ejs %>
+            <!--breadcrumbs-->
+            <section class="breadcrumbs">
+                <div class="container">
+                    <ul class="horizontal_list clearfix bc_list f_size_medium">
+                        <li class="m_right_10 current"><a href="/" class="default_t_color">Trang chủ<i class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
+                        <li><a class="default_t_color">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </section>
+            <!-- CONTENT -->
+            <div class="page_content_offset">
+                <div class="container">
+                    <div class="row clearfix">
+                        <!--left content column-->
+                        <section class="col-lg-9 col-md-9 col-sm-9">
+                            <h2 class="tt_uppercase color_dark m_bottom_25">Liên Hệ</h2>
+                            <div class="r_corners photoframe map_container shadow m_bottom_45">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1745069003287!2d106.66872294998794!3d10.797942992269189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752929312f04a1%3A0x4cf308232d8ac882!2zMjYxIE5ndXnhu4VuIFRy4buNbmcgVHV54buDbiwgcGjGsOG7nW5nIDEwLCBQaMO6IE5odeG6rW4sIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1476527187520" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-4 col-md-4 col-sm-4 m_xs_bottom_30">
+                                    <h2 class="tt_uppercase color_dark m_bottom_25">Thông Tin</h2>
+                                    <ul class="c_info_list">
+                                        <li class="m_bottom_10">
+                                            <div class="clearfix m_bottom_15">
+                                                <i class="fa fa-map-marker f_left color_dark"></i>
+                                                <p class="contact_e">261/8 Nguyễn Trọng Tuyển<br> Phường 10, Quận Phú Nhuận, TP.HCM.</p>
+                                            </div>
+                                        </li>
+                                        <li class="m_bottom_10">
+                                            <div class="clearfix m_bottom_10">
+                                                <i class="fa fa-phone f_left color_dark"></i>
+                                                <p class="contact_e">0906-603-187</p>
+                                            </div>
+                                        </li>
+                                        <li class="m_bottom_10">
+                                            <div class="clearfix m_bottom_10">
+                                                <i class="fa fa-envelope f_left color_dark"></i>
+                                                <a class="contact_e default_t_color" href="mailto:#">tksaigonaothun@gmail.com</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="clearfix">
+                                                <i class="fa fa-clock-o f_left color_dark"></i>
+                                                <p class="contact_e">Thứ 2 - CN: 08.00-20.00</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 m_xs_bottom_30">
+                                    <h2 class="tt_uppercase color_dark m_bottom_25">Form Liên Hệ</h2>
+                                    <p class="m_bottom_10">Gửi email. Tất cả các trường với <span class="scheme_color">*</span> là bắt buộc.</p>
+                                    <form id="contactform" method="POST">
+                                        <ul>
+                                            <li class="clearfix m_bottom_15">
+                                                <div class="f_left half_column">
+                                                    <label for="cf_name" class="required d_inline_b m_bottom_5">Tên của bạn</label>
+                                                    <input type="text" id="cf_name" name="name" class="full_width r_corners" required="">
+                                                </div>
+                                                <div class="f_left half_column">
+                                                    <label for="cf_email" class="required d_inline_b m_bottom_5">Email của bạn</label>
+                                                    <input type="email" id="cf_email" name="email" class="full_width r_corners" required="">
+                                                </div>
+                                            </li>
+                                            <li class="m_bottom_15">
+                                                <label for="cf_subject" class="d_inline_b m_bottom_5">Chủ đề</label>
+                                                <input type="text" id="cf_subject" name="subject" class="full_width r_corners">
+                                            </li>
+                                            <li class="m_bottom_15">
+                                                <label for="cf_message" class="d_inline_b m_bottom_5 required">Nội dung</label>
+                                                <textarea id="cf_message" name="message" class="full_width r_corners" required=""></textarea>
+                                            </li>
+                                            <li>
+                                                <button type="submit" class="button_type_4 bg_light_color_2 r_corners mw_0 tr_all_hover color_dark" id="submit_contact">Gửi</button>
+                                            </li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                        <!--end left content column-->
+                        <aside class="col-lg-3 col-md-3 col-sm-3">
+                            <!--tags-->
+                            <figure class="widget shadow r_corners wrapper m_bottom_30">
+                                <figcaption>
+                                    <h3 class="color_light">Chủ Đề</h3>
+                                </figcaption>
+                                <div class="widget_content">
+                                    <div class="tags_list">
+                                        <% tags.map(function(tag, index){ %>
+                                            <% if(index === tags.length-1){ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.name %></a>
+                                            <% }else{ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.name %>, </a>
+                                            <% } %>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            </figure>
+                            <figure class="widget shadow r_corners wrapper m_bottom_30">
+                                <figcaption>
+                                    <h3 class="color_light">Danh Mục</h3>
+                                </figcaption>
+                                <div class="widget_content">
+                                    <!--Categories list-->
+                                    <ul class="categories_list">
+                                        <li class="active">
+                                            <a href="" class="f_size_large scheme_color d_block relative">
+                                                <b>Áo Thun Nữ</b>
+                                                <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/ao-thun/nu/vai-trang" class="d_block f_size_large color_dark relative">
+                                                        Vai Trắng
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nu/vai-den" class="d_block f_size_large color_dark relative">
+                                                        Vai Đen
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nu/raglan" class="d_block f_size_large color_dark relative">
+                                                        Raglan
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nu/ba-lo" class="d_block f_size_large color_dark relative">
+                                                        Ba Lỗ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="active">
+                                            <a href="" class="f_size_large scheme_color d_block relative">
+                                                <b>Áo Thun Nam</b>
+                                                <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/ao-thun/nam/vai-trang" class="d_block f_size_large color_dark relative">
+                                                        Vai Trắng
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nam/vai-den" class="d_block f_size_large color_dark relative">
+                                                        Vai Đen
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nam/raglan" class="d_block f_size_large color_dark relative">
+                                                        Raglan
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nam/ba-lo" class="d_block f_size_large color_dark relative">
+                                                        Ba Lỗ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="active">
+                                            <a href="" class="f_size_large scheme_color d_block relative">
+                                                <b>Áo Thun Trẻ Em</b>
+                                                <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/ao-thun/tre-em/vai-trang" class="d_block f_size_large color_dark relative">
+                                                        Vai Trắng
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/tre-em/ba-lo" class="d_block f_size_large color_dark relative">
+                                                        Ba Lỗ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </figure>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+            <%- include partials/footer.ejs %>
+        </div>
+
+        <script type="text/javascript" src="/modules/client/js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/retina.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/contact_scripts.js"></script>
+    </body>
+</html>

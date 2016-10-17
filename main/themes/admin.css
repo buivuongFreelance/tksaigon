@@ -1,0 +1,54 @@
+div{
+    box-sizing: border-box;
+}
+
+a{
+    cursor: pointer;
+    color: blue;
+}
+
+ul{
+	list-style-type: none;
+}
+
+.grid{
+    width: 650px;
+    display: inline-block;
+}
+
+#main-content, #side-content, #add-content{
+    overflow: auto;
+    height: 300px;
+    display: inline-block;
+    padding: 10px;
+}
+
+#main-content{
+    width: 70%;
+}
+
+#side-content{
+    width: 30%;
+}
+
+#add-content{
+	width: 100%;
+}
+
+.group-images{
+    width: 100%;
+}
+
+.group-images .image{
+    display: inline-block;
+}
+
+.group-images .image img{
+    width: 150px;
+}
+
+.half{
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>TKSaigon - In áo thun theo yêu cầu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <!-- You can use Open Graph tags to customize link previews.
+        Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+        <meta property="og:url"           content="<%= product.url %>" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Your Website Title" />
+        <meta property="og:description"   content="Your description" />
+        <meta property="og:image"         content="/images/items/<%= product.image %>_560.jpeg" />
+        <meta property="fb:app_id" content="1671289656531577" />
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/jquery.custom-scrollbar.css">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/fancybox.css">
+        <!-- FONT -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <script type="text/javascript" src="/modules/client/js/modernizr.js"></script>
+        <!-- END FONT -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/style.css">
+    </head>
+    <body>
+        <div class="wide_layout relative w_xs_auto">
+            <%- include partials/header.ejs %>
+            <!--breadcrumbs-->
+            <section class="breadcrumbs">
+                <div class="container">
+                    <ul class="horizontal_list clearfix bc_list f_size_medium">
+                        <li class="m_right_10 current"><a href="/" class="default_t_color">Trang chủ<i class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
+                        <li class="m_right_10"><a href="/ao-thun/<%= product.sex %>/vai-den" class="default_t_color"><%= product.sex_value %></a><i class="fa fa-angle-right d_inline_middle m_left_10"></i></li>
+                        <li class="m_right_10"><a href="/ao-thun/<%= product.sex %>/<%= product.type %>" class="default_t_color"><%= product.type_value %></a><i class="fa fa-angle-right d_inline_middle m_left_10"></i></li>
+                        <li><a class="default_t_color"><%= product.name %></a></li>
+                    </ul>
+                </div>
+            </section>
+            <!--content-->
+            <div class="page_content_offset">
+                <div class="container">
+                    <div class="row clearfix">
+                        <section class="col-lg-9 col-md-9 col-sm-9">
+                            <div class="clearfix m_bottom_30 t_xs_align_c">
+                                <div class="photoframe type_2 shadow r_corners f_left f_sm_none d_xs_inline_b product_single_preview relative m_right_30 m_bottom_5 m_sm_bottom_20 m_xs_right_0 w_mxs_full">
+                                    <div class="relative d_inline_b m_bottom_10 qv_preview d_xs_block">
+                                        <img id="zoom_image" src="/images/items/<%= product.image %>_560.jpeg" data-zoom-image="/images/items/<%= product.image %>_560.jpeg" class="tr_all_hover" alt="">
+                                        <a href="/images/items/<%= product.image %>_560.jpeg" class="d_block button_type_5 r_corners tr_all_hover box_s_none color_light p_hr_0">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                    <!--carousel-->
+                                    <div class="relative qv_carousel_wrap">
+                                        <button class="button_type_11 bg_light_color_1 t_align_c f_size_ex_large bg_cs_hover r_corners d_inline_middle bg_tr tr_all_hover qv_btn_single_prev">
+                                            <i class="fa fa-angle-left "></i>
+                                        </button>
+                                        <ul class="qv_carousel_single d_inline_middle">
+                                            <a href="#" data-image="/images/items/<%= product.image %>_560.jpeg" data-zoom-image="/images/items/<%= product.image %>_560.jpeg"><img src="/images/items/<%= product.image %>_350.jpeg" alt=""></a>
+                                            <% if(product.sex !== 'nu' || product.type !== 'vai-den'){ %>
+                                            <a href="#" data-image="/images/items/<%= product.image %>_560_sub.jpeg" data-zoom-image="/images/items/<%= product.image %>_560_sub.jpeg"><img src="/images/items/<%= product.image %>_350_sub.jpeg" alt=""></a>
+                                            <% } %>
+                                            <% if(product.type === 'vai-den'){ %>
+                                            <a href="#" data-image="/images/items/back_560.jpg" data-zoom-image="/images/items/back_560.jpg"><img src="/images/items/back_560.jpg" alt=""></a>
+                                            <% } %>
+                                            <a href="#" data-image="/images/items/<%= product.design_image %>_560.jpeg" data-zoom-image="/images/items/<%= product.design_image %>_560.jpeg"><img src="/images/items/<%= product.design_image %>_350.jpeg" alt=""></a>
+                                        </ul>
+                                        <button class="button_type_11 bg_light_color_1 t_align_c f_size_ex_large bg_cs_hover r_corners d_inline_middle bg_tr tr_all_hover qv_btn_single_next">
+                                            <i class="fa fa-angle-right "></i>
+                                        </button>
+                                    </div>
+                                    <!--end carousel-->
+                                </div>
+                                <div class="p_top_10 t_xs_align_l">
+                                    <!--description-->
+                                    <h2 class="color_dark fw_medium m_bottom_10"><%= product.name %></h2>
+                                    <div class="m_bottom_10">
+                                        <h4 class="color_dark fw_medium"><%= product.product_name %></h4>
+                                    </div>
+                                    <hr class="m_bottom_10 divider_type_3">
+                                    <table class="description_table m_bottom_10">
+                                        <tr>
+                                            <td>Nhà Sản Xuất:</td>
+                                            <td><a class="color_dark">TKSaigon</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Loại Áo:</td>
+                                            <td><a><%= product.product_name %></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tình Trạng:</td>
+                                            <td><span class="color_green">Còn Hàng</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mã Áo:</td>
+                                            <td><%= product.seo %></td>
+                                        </tr>
+                                    </table>
+                                    <p class="m_bottom_10">
+                                        <% if(product.sex === 'nam'){ %>
+                                            <table class="table_type_1" style="font-size: 0.8em;">
+                                                <thead class="bg_color_green_1 color_light">
+                                                    <tr>
+                                                        <th>S</th>
+                                                        <th>M</th>
+                                                        <th>L</th>
+                                                        <th>XL</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            1m50 – 1m60
+                                                            <br>45 -54 kg
+                                                        </td>
+                                                        <td>
+                                                            1m60 – 1m69
+                                                            <br>55 – 65 kg
+                                                        </td>
+                                                        <td>
+                                                            1m70 -1m75
+                                                            <br>65 - 75 kg
+                                                        </td>
+                                                        <td>
+                                                            TRÊN 1m75
+                                                            <br>70 – 78 kg
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        <% } %>
+                                        <% if(product.sex === 'nu'){ %>
+                                            <table class="table_type_1" style="font-size: 0.8em;">
+                                                <thead class="bg_color_green_1 color_light">
+                                                    <tr>
+                                                        <th>S</th>
+                                                        <th>M</th>
+                                                        <th>L</th>
+                                                        <th>XL</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            1m48-1m53<br>
+                                                            37 – 41 kg
+                                                        </td>
+                                                        <td>
+                                                            1m54 -1m59<br>
+                                                            42 – 46 kg
+                                                        </td>
+                                                        <td>
+                                                            1m60 -1m65<br>
+                                                            47 – 51kg
+                                                        </td>
+                                                        <td>
+                                                            TRÊN 1m 60<br>
+                                                            TRÊN 56 kg
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        <% } %>
+                                    </p>
+                                    <hr class="divider_type_3 m_bottom_15">
+                                    <div class="m_bottom_15">
+                                        <div class="v_align_b f_size_big m_left_5 m_bottom_15 scheme_color fw_medium"><%= product.price %>.000 VNĐ</div>
+                                        <div class="fb-share-button d_inline_middle" data-href="<%= product.url %>" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Chia sẻ</a></div>
+                                    </div>
+                                    <hr class="divider_type_3 m_bottom_15">
+                                    <table class="description_table type_2 m_bottom_15">
+                                        <% if(product.sex === 'tre-em'){ %>
+                                        <tr>
+                                            <td class="v_align_m">Size:</td>
+                                            <td class="v_align_m">
+                                                <div class="custom_select f_size_medium relative d_inline_middle">
+                                                    <div class="select_title r_corners relative color_dark">Trẻ 9 tuổi</div>
+                                                    <ul class="select_list d_none"></ul>
+                                                    <select id="child_size" name="product_name">
+                                                        <option value="S">Trẻ 6 tuổi</option>
+                                                        <option value="M" selected="selected">Trẻ 9 tuổi</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>    
+                                        <% }else{ %>
+                                        <tr>
+                                            <td class="v_align_m">Size:</td>
+                                            <td class="v_align_m">
+                                                <div class="custom_select f_size_medium relative d_inline_middle">
+                                                    <div class="select_title r_corners relative color_dark">M</div>
+                                                    <ul class="select_list d_none"></ul>
+                                                    <select name="product_name" id="size">
+                                                        <option value="S">S</option>
+                                                        <option value="M" selected="selected">M</option>
+                                                        <option value="L">L</option>
+                                                        <option value="XL">XL</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                        <tr>
+                                            <td class="v_align_m">Số lượng:</td>
+                                            <td class="v_align_m">
+                                                <div class="clearfix quantity r_corners d_inline_middle f_size_medium color_dark">
+                                                    <button class="bg_tr d_block f_left" data-direction="down">-</button>
+                                                    <input type="text" name="" readonly value="1" class="f_left" id="quantity">
+                                                    <input type="hidden" id="item_id" value="<%= product.item_id%>">
+                                                    <input type="hidden" id="image" value="<%= product.image%>">
+                                                    <button class="bg_tr d_block f_left" data-direction="up">+</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="d_ib_offset_0 m_bottom_20">
+                                        <button class="button_type_12 r_corners bg_scheme_color color_light tr_delay_hover d_inline_b f_size_large"
+                                        type="button"
+                                        data-popup="#buy">Mua Ngay</button>
+                                        <!--<button class="button_type_12 bg_light_color_2 tr_delay_hover d_inline_b r_corners color_dark m_left_5 p_hr_0"><span class="tooltip tr_all_hover r_corners color_dark f_size_small"><%= product.love %> Thích Áo</span><i class="fa fa-heart-o f_size_big"></i></button>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tabs m_bottom_45">
+                                <nav>
+                                    <ul class="tabs_nav horizontal_list clearfix">
+                                        <li class="f_xs_none"><a href="#tab-1" class="bg_light_color_1 color_dark tr_delay_hover r_corners d_block">Bình Luận</a></li>
+                                    </ul>
+                                </nav>
+                                <section class="tabs_content shadow r_corners">
+                                    <div id="tab-1">
+                                        <div class="fb-comments" data-href="<%= product.url %>" data-numposts="5"></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="clearfix">
+                                <h2 class="color_dark tt_uppercase f_left m_bottom_15 f_mxs_none">Các Áo Cùng Thiết Kế</h2>
+                                <div class="f_right clearfix nav_buttons_wrap f_mxs_none m_mxs_bottom_5">
+                                    <button class="button_type_7 bg_cs_hover box_s_none f_size_ex_large t_align_c bg_light_color_1 f_left tr_delay_hover r_corners rp_prev"><i class="fa fa-angle-left"></i></button>
+                                    <button class="button_type_7 bg_cs_hover box_s_none f_size_ex_large t_align_c bg_light_color_1 f_left m_left_5 tr_delay_hover r_corners rp_next"><i class="fa fa-angle-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="related_projects product_full_width m_bottom_15">
+                                <% product_rels.forEach(function(design){ %>
+                                <figure class="r_corners photoframe shadow relative d_inline_b d_md_block d_xs_inline_b tr_all_hover">
+                                    <!--product preview-->
+                                    <a href="/ao-thun/<%= design.sex %>/<%= design.type %>/<%= design.seo %>" class="d_block relative pp_wrap">
+                                        <img src="/images/items/<%= design.image %>_350.jpeg" class="tr_all_hover" alt="">
+                                    </a>
+                                    <!--description and price of product-->
+                                    <figcaption class="t_xs_align_l">
+                                        <h5 class="m_bottom_10"><a href="/ao-thun/<%= design.sex %>/<%= design.type %>/<%= design.seo %>" class="color_dark ellipsis"><%= design.name %></a></h5>
+                                        <div class="clearfix">
+                                            <p class="scheme_color f_left f_size_large m_bottom_15"><%= design.price %>.000 VNĐ</p>
+                                        </div>
+                                        <a href="/ao-thun/<%= design.sex %>/<%= design.type %>/<%= design.seo %>" class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0">Xem Ngay</a>
+                                    </figcaption>
+                                </figure>
+                                <% }) %>
+                            </div>
+                            <hr class="divider_type_3 m_bottom_15">
+                            <a href="/ao-thun/<%= product.sex %>/<%= product.type %>" role="button" class="d_inline_b bg_light_color_2 color_dark tr_all_hover button_type_4 r_corners"><i class="fa fa-reply m_left_5 m_right_10 f_size_large"></i>Trở Về: <%= product.sex_value %></a>
+                        </section>
+                        <!--right column-->
+                        <aside class="col-lg-3 col-md-3 col-sm-3">
+                            <!--tags-->
+                            <figure class="widget shadow r_corners wrapper m_bottom_30">
+                                <figcaption>
+                                    <h3 class="color_light">Chủ Đề</h3>
+                                </figcaption>
+                                <div class="widget_content">
+                                    <div class="tags_list">
+                                        <% tags.map(function(tag, index){ %>
+                                            <% if(index === tags.length-1){ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.name %></a>
+                                            <% }else{ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.name %>, </a>
+                                            <% } %>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            </figure>
+                            <figure class="widget shadow r_corners wrapper m_bottom_30">
+                                <figcaption>
+                                    <h3 class="color_light">Danh Mục</h3>
+                                </figcaption>
+                                <div class="widget_content">
+                                    <!--Categories list-->
+                                    <ul class="categories_list">
+                                        <li class="active">
+                                            <a href="" class="f_size_large scheme_color d_block relative">
+                                                <b>Áo Thun Nữ</b>
+                                                <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/ao-thun/nu/vai-trang" class="d_block f_size_large color_dark relative">
+                                                        Vai Trắng
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nu/vai-den" class="d_block f_size_large color_dark relative">
+                                                        Vai Đen
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nu/raglan" class="d_block f_size_large color_dark relative">
+                                                        Raglan
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nu/ba-lo" class="d_block f_size_large color_dark relative">
+                                                        Ba Lỗ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="active">
+                                            <a href="" class="f_size_large scheme_color d_block relative">
+                                                <b>Áo Thun Nam</b>
+                                                <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/ao-thun/nam/vai-trang" class="d_block f_size_large color_dark relative">
+                                                        Vai Trắng
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nam/vai-den" class="d_block f_size_large color_dark relative">
+                                                        Vai Đen
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nam/raglan" class="d_block f_size_large color_dark relative">
+                                                        Raglan
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nam/ba-lo" class="d_block f_size_large color_dark relative">
+                                                        Ba Lỗ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="active">
+                                            <a href="" class="f_size_large scheme_color d_block relative">
+                                                <b>Áo Thun Trẻ Em</b>
+                                                <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/ao-thun/tre-em/vai-trang" class="d_block f_size_large color_dark relative">
+                                                        Vai Trắng
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/tre-em/ba-lo" class="d_block f_size_large color_dark relative">
+                                                        Ba Lỗ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </figure>
+                            <!--tags-->
+                            <figure class="widget shadow r_corners wrapper m_bottom_30">
+                                <figcaption>
+                                    <h3 class="color_light">Chủ Đề</h3>
+                                </figcaption>
+                                <div class="widget_content">
+                                    <div class="tags_list">
+                                        <% tags.map(function(tag, index){ %>
+                                            <% if(index === tags.length-1){ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.seo %></a>
+                                            <% }else{ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.seo %>, </a>
+                                            <% } %>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            </figure>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <%- include partials/footer.ejs %>
+        </div>
+
+        <!--buy popup-->
+        <div class="popup_wrap d_none" id="buy">
+            <section class="popup r_corners shadow">
+                <button class="bg_tr color_dark tr_all_hover text_cs_hover close f_size_large"><i class="fa fa-times"></i></button>
+                <h3 class="m_bottom_20 color_dark">Đơn hàng</h3>
+                <form id="buy_form" method="POST">
+                    <ul>
+                        <li class="m_bottom_15">
+                            <label for="name" class="m_bottom_5 d_inline_b required">Tên bạn</label><br>
+                            <input type="text" name="name" id="name" required="" class="r_corners full_width">
+                        </li>
+                        <li class="m_bottom_15">
+                            <label for="phone" class="m_bottom_5 d_inline_b required">Điện thoại</label><br>
+                            <input type="number" name="phone" id="phone" required="" class="r_corners full_width">
+                        </li>
+                        <li class="m_bottom_15">
+                            <label for="address" class="m_bottom_5 d_inline_b">Địa chỉ</label><br>
+                            <input type="text" name="address" id="address" class="r_corners full_width">
+                        </li>
+                    </ul>
+                    <button class="tr_all_hover r_corners button_type_4 bg_dark_color bg_cs_hover color_light m_mxs_left_0 m_bottom_15">Mua Hàng</button>
+                </form>
+                <p class="scheme_color f_size_large m_bottom_15"><b>Tổng cộng: </b><%= product.price %>.000 VNĐ</p>
+                <p class="m_bottom_15">
+                    <ul class="vertical_list_type_2 m_left_20">
+                        <li class="m_bottom_15">Giao hàng trước, trả tiền sau</li>
+                        <li class="m_bottom_15">TP.HCM chờ 1 tuần <b>Free Ship</b></li>
+                        <li class="m_bottom_15">Ngoài TP.HCM chờ 2 tuần <b>Ship 10.000 VNĐ</b></li>
+                        <li class="m_bottom_15"><a href="/ho-tro/giao-hang" target="_blank">Chi tiết Phí Ship</a></li>
+                        <li class="m_bottom_15"><a href="/ho-tro/doi-tra" target="_blank">Chi tiết đổi trả</a></li>
+                    </ul>
+                </p>
+            </section>
+        </div>
+
+        <script type="text/javascript" src="/modules/client/js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/jquery.ui.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/jquery.migrate.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/retina.js"></script>
+        <script type="text/javascript" src="/modules/client/js/elevatezoom.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/waypoints.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/jquery.custom-scrollbar.js"></script>
+        <script type="text/javascript" src="/modules/client/js/fancybox-1.3.4.js"></script>
+        <script type="text/javascript" src="/modules/client/js/scripts.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/detail_scripts.js"></script>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    </body>
+</html>

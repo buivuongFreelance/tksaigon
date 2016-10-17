@@ -1,0 +1,28 @@
+users
+    id
+    name
+    type (admin | guest)
+    avatar
+    sex (Nam | Nữ)
+
+products
+    id
+    name
+    price
+    desc
+    content
+    parent (0-10)
+    comments
+    ratings
+    views
+
+comments
+    id
+    user_id (-1 | khach)
+    product_id
+    content
+
+ratings
+    id
+    user_id (-1 | khach)
+    product_id

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <title>TKSaigon - In áo thun theo yêu cầu</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/jquery.custom-scrollbar.css">
+        <!-- FONT -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <script type="text/javascript" src="/modules/client/js/modernizr.js"></script>
+        <!-- END FONT -->
+        <link rel="stylesheet" type="text/css" href="/modules/client/css/style.css">
+    </head>
+    <body>
+        <div class="wide_layout relative w_xs_auto">
+            <%- include partials/header.ejs %>
+            <!--breadcrumbs-->
+            <section class="breadcrumbs">
+                <div class="container">
+                    <ul class="horizontal_list clearfix bc_list f_size_medium">
+                        <li class="m_right_10 current"><a href="/" class="default_t_color">Trang chủ<i class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
+                        <li><a class="default_t_color"><%= tag.name %></a></li>
+                    </ul>
+                </div>
+            </section>
+            <!--content-->
+            <div class="page_content_offset">
+                <div class="container">
+                    <div class="row clearfix">
+                        <section class="col-lg-9 col-md-9 col-sm-9">
+                            <h2 class="tt_uppercase color_dark m_bottom_25"><%= tag.name %></h2>
+                            <!--products-->
+                            <section class="products_container category_grid clearfix m_bottom_15">
+                                <!--product item-->
+                                <% products.forEach(function(design){ %>
+                                <div class="product_item hit w_xs_full">
+                                    <figure class="r_corners photoframe type_2 t_align_c tr_all_hover shadow relative">
+                                        <!--product preview-->
+                                        <a href="/ao-thun/<%= design.sex %>/<%= design.type %>/<%= design.seo %>" class="d_block relative wrapper pp_wrap m_bottom_15">
+                                            <img src="/images/items/<%= design.image %>_350.jpeg" class="tr_all_hover" alt="">
+                                        </a>
+                                        <!--description and price of product-->
+                                        <figcaption>
+                                            <h5 class="m_bottom_10"><a href="/ao-thun/<%= design.sex %>/<%= design.type %>/<%= design.seo %>" class="color_dark"><%= design.name %></a></h5>
+                                            <p class="scheme_color f_size_large m_bottom_15">
+                                                <%= design.price %>.000 VNĐ
+                                            </p>    
+                                            <a class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15"
+                                            href="/ao-thun/<%= design.sex %>/<%= design.type %>/<%= design.seo %>">Xem Ngay</a>
+                                            <div class="clearfix m_bottom_10"></div>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                                <% }) %>
+                            </section>
+                            <div class="row clearfix m_bottom_15">
+                                <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12 t_align_l t_xs_align_l">
+                                    <!--pagination-->
+                                    Trang
+                                    <!--<a role="button" href="#" class="button_type_10 color_dark d_inline_middle bg_cs_hover bg_light_color_1 t_align_c tr_delay_hover r_corners box_s_none"><i class="fa fa-angle-left"></i></a>-->
+                                    <ul class="horizontal_list clearfix d_inline_middle f_size_medium m_left_10">
+                                        <% pages_arr.forEach(function(page){ %>
+                                        <li class="m_right_10">
+                                            <a class="<%= page.class %>" href="/ao-thun/<%= tag.seo %>?page=<%= page.number %>">
+                                                <%= page.number %>
+                                            </a>
+                                        </li>
+                                        <% }) %>
+                                    </ul>
+                                    <!--<a role="button" href="#" class="button_type_10 color_dark d_inline_middle bg_cs_hover bg_light_color_1 t_align_c tr_delay_hover r_corners box_s_none"><i class="fa fa-angle-right"></i></a>-->
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-8 col-xs-12 m_xs_bottom_10 t_align_r">
+                                    <p class="d_inline_middle f_size_medium d_xs_block m_xs_bottom_5"><%= count %> sản phẩm</p>
+                                    <p class="d_inline_middle f_size_medium m_left_20 m_xs_left_0">HIển thị :</p>
+                                    <!--show items per page select-->
+                                    <div class="custom_select f_size_medium relative d_inline_middle m_left_5">
+                                        <div class="select_title r_corners relative color_dark">21</div>
+                                    </div>
+                                    <p class="d_inline_middle f_size_mediu m_left_5">mỗi trang</p>
+                                </div>
+                            </div>
+                        </section>
+                        <!--right column-->
+                        <aside class="col-lg-3 col-md-3 col-sm-3">
+                            <!--tags-->
+                            <figure class="widget shadow r_corners wrapper m_bottom_30">
+                                <figcaption>
+                                    <h3 class="color_light">Chủ Đề</h3>
+                                </figcaption>
+                                <div class="widget_content">
+                                    <div class="tags_list">
+                                        <% tags.map(function(tag, index){ %>
+                                            <% if(index === tags.length-1){ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.name %></a>
+                                            <% }else{ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.name %>, </a>
+                                            <% } %>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            </figure>
+                            <figure class="widget shadow r_corners wrapper m_bottom_30">
+                                <figcaption>
+                                    <h3 class="color_light">Danh Mục</h3>
+                                </figcaption>
+                                <div class="widget_content">
+                                    <!--Categories list-->
+                                    <ul class="categories_list">
+                                        <li class="active">
+                                            <a href="" class="f_size_large scheme_color d_block relative">
+                                                <b>Áo Thun Nữ</b>
+                                                <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/ao-thun/nu/vai-trang" class="d_block f_size_large color_dark relative">
+                                                        Vai Trắng
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nu/vai-den" class="d_block f_size_large color_dark relative">
+                                                        Vai Đen
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nu/raglan" class="d_block f_size_large color_dark relative">
+                                                        Raglan
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nu/ba-lo" class="d_block f_size_large color_dark relative">
+                                                        Ba Lỗ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="active">
+                                            <a href="" class="f_size_large scheme_color d_block relative">
+                                                <b>Áo Thun Nam</b>
+                                                <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/ao-thun/nam/vai-trang" class="d_block f_size_large color_dark relative">
+                                                        Vai Trắng
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nam/vai-den" class="d_block f_size_large color_dark relative">
+                                                        Vai Đen
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nam/raglan" class="d_block f_size_large color_dark relative">
+                                                        Raglan
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/nam/ba-lo" class="d_block f_size_large color_dark relative">
+                                                        Ba Lỗ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="active">
+                                            <a href="" class="f_size_large scheme_color d_block relative">
+                                                <b>Áo Thun Trẻ Em</b>
+                                                <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <a href="/ao-thun/tre-em/vai-trang" class="d_block f_size_large color_dark relative">
+                                                        Vai Trắng
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/ao-thun/tre-em/ba-lo" class="d_block f_size_large color_dark relative">
+                                                        Ba Lỗ
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </figure>
+                            <!--tags-->
+                            <figure class="widget shadow r_corners wrapper m_bottom_30">
+                                <figcaption>
+                                    <h3 class="color_light">Chủ Đề</h3>
+                                </figcaption>
+                                <div class="widget_content">
+                                    <div class="tags_list">
+                                        <% tags.map(function(tag, index){ %>
+                                            <% if(index === tags.length-1){ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.seo %></a>
+                                            <% }else{ %>
+                                                <a href="/ao-thun/<%= tag.seo %>" class="color_dark d_inline_b v_align_b"><%= tag.seo %>, </a>
+                                            <% } %>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            </figure>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <%- include partials/footer.ejs %>
+        </div>
+
+        <script type="text/javascript" src="/modules/client/js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/jquery.isotope.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/retina.js"></script>
+        <script type="text/javascript" src="/modules/client/js/waypoints.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="/modules/client/js/jquery.custom-scrollbar.js"></script>
+        <script type="text/javascript" src="/modules/client/js/scripts.js"></script>
+    </body>
+</html>
